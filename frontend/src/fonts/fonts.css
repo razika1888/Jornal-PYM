@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Anton';
+    src: url(Anton/Anton-Regular.ttf) format("truetype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url(Lora/static/Lora-Regular.ttf) format("truetype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Unifraktur Cook';
+    src: url(UnifrakturCook/UnifrakturCook-Bold.ttf) format("truetype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bodoni Moda';
+    src: url(BodoniModa/static/BodoniModa_18pt-Regular.ttf) format("truetype");
+    font-style: normal;
+}

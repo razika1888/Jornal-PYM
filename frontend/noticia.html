@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <link rel="stylesheet" href="/src/styles/noticia.css">
+    <link rel="icon" type="image/png" href="/src/images/logo-branca.png">
+    <title>PYM DAILY BUDGE | Notícia</title>
+</head>
+<body>
+    <!-- BOTÃO TEMA -->
+    <button
+        type="button"
+        id="themeToggle"
+        aria-pressed="false"
+        aria-label="Ativar modo escuro"
+        title="Alternar modo claro/escuro"
+    ><i class="fa-regular fa-moon"></i></button>
+
+    <!-- BARRA TOPO -->
+    <div class="top-bar">
+        <div class="container">
+            <span class="top-bar__data"></span>
+            <div class="top-bar__meta">
+                <span>Pym City: <strong id="temp-pym-city"></strong></span>
+                <span>Edição avulsa: <strong>R$ 3,50</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <a href="/">
+        <header class="header">
+            <div class="container header__inner">
+                <div class="header__row">
+                    <span class="divisor"></span>
+                    <div class="header__logo"><img src="/src/images/logo.png"></div>
+                    <span class="divisor"></span>
+                </div>
+                <h1 class="logo">PYM Daily Budge</h1>
+                <p class="header__tagline">"A cidade dos heróis nunca para!" - fundado em 1963</p>
+                <div class="header__badges">
+                    <span>Circulação verificada em <strong>14 metrópoles</strong></span>
+                    <span>Seção de heróis, vilões &amp; fenômenos</span>
+                </div>
+            </div>
+        </header>
+    </a>
+
+    <nav class="main-nav">
+        <div class="container">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="navList"><i class="fa-solid fa-bars"></i> Seções</button>
+            <ul class="nav-list" id="navList">
+                <li><a href="/">Capa</a></li>
+                <li><a href="#">Heróis</a></li>
+                <li><a href="#">Editorial</a></li>
+                <li><a href="/sobre.html">Sobre Nós</a></li>
+                <li><a href="/#rodape" class="nav-cta">Assine</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <article class="noticia-container container" id="noticiaConteudo">
+
+            <!-- Estado de carregamento -->
+            <div class="noticia-estado" id="noticiaCarregando">
+                <i class="fa-solid fa-spinner fa-spin"></i> Carregando reportagem...
+            </div>
+
+            <!-- Estado de erro (escondido por padrão) -->
+            <div class="noticia-estado noticia-estado--erro" id="noticiaErro" hidden>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <p>Não foi possível encontrar essa reportagem. Ela pode ter sido removida ou o link está incorreto.</p>
+                <a href="/" class="noticia-voltar">Voltar à Capa</a>
+            </div>
+
+            <!-- Corpo real da notícia (preenchido via JS, escondido até carregar) -->
+            <div id="noticiaCorpoWrapper" hidden>
+                <span class="eyebrow">Notícias de Primeira e Melhor Qualidade</span>
+
+                <h1 class="noticia-titulo" id="noticiaTitulo"></h1>
+
+                <p class="noticia-dek" id="noticiaSubtitulo" hidden></p>
+
+                <div class="byline noticia-byline">
+                    <span>Por: <strong id="noticiaAutor"></strong></span>
+                    <span id="noticiaMeta"></span>
+                </div>
+
+                <div class="noticia-corpo" id="noticiaTexto"></div>
+
+                <figure class="noticia-imagem" id="noticiaFigura" hidden>
+                    <img id="noticiaImagem" alt="">
+                    <figcaption>Foto: PYM Daily Budge</figcaption>
+                </figure>
+
+                <hr class="noticia-divisor">
+
+                <a href="/" class="noticia-voltar"><i class="fa-solid fa-arrow-left"></i> Voltar à Capa</a>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer" id="rodape">
+        <div class="footer-watermark" aria-hidden="true">PYM DAILY BUDGE</div>
+
+        <div class="footer-top container">
+            <div class="footer-grid">
+
+                <div class="footer-col footer-brand">
+                    <h2>PYM Daily Budge</h2>
+                    <p>Publicação diária independente, cobrindo todas as principais cidades do mundo desde 1963. Redação, apuração e fotografia de mais alta qualidade desde sempre!</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Seções</h4>
+                    <ul>
+                        <li><a href="/">Capa</a></li>
+                        <li><a href="#">Heróis</a></li>
+                        <li><a href="">Editorial</a></li>
+                        <li><a href="/sobre.html">Sobre Nós</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Sobre o Daily Budge</h4>
+                    <ul>
+                        <li><a href="">Quem somos</a></li>
+                        <li><a href="">Anuncie conosco</a></li>
+                        <li><a href="">Trabalhe conosco</a></li>
+                        <li><a href="">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Acesso rápido</h4>
+                    <div class="access-list">
+                        <a href="/login.html" class="btn-primary">Entrar na conta</a>
+                        <a href="">Assinar o Daily Budge</a>
+                        <a href="">Recuperar senha</a>
+                    </div>
+                    <h4 style="margin-top: 20px;">Redes Sociais</h4>
+                    <div class="social-list">
+                        <a href="https://discord.gg/6GGW9Ue74n" aria-label="Daily Budge no Discord"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" aria-label="Daily Budge no TikTok (Indisponível)"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <p class="jornal-nota">Receba a edição diária do PYM Daily Budge direto no seu comunicador. Sem spam, sem robôs disfarçados.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom container">
+            <span>&copy; 2026 PYM Daily Budge — Todos os direitos reservados. Uma publicação fictícia de PYM Lunar Will RP</span>
+            <span><a href="#">Termos de Uso</a> · <a href="#">Privacidade</a> · <a href="#">Código de ética</a></span>
+        </div>
+    </footer>
+
+    <script src="/src/scripts/script.js"></script>
+    <script src="/src/scripts/clima.js"></script>
+    <script src="/src/scripts/auth-status.js"></script>
+    <script src="/src/scripts/noticia.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+@import url(main.css);
+
+.about-page .container  { max-width: 830px; }
+.about-page { padding: 48px 0 70px; }
+
+/* Cabeçalho da Página */
+.about-hero { padding-bottom: 26px; }
+
+.about-hero .eyebrow {
+    color: var(--red);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+.about-hero h1 {
+    font-family: var(--font-body);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    color: var(--ink);
+    margin: 10px 0 18px;
+    line-height: 1.05;
+}
+
+.about-hero h1 .accent {
+    color: var(--red);
+}
+
+.about-hero__lead {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 62ch;
+}
+
+.about-divisor {
+    height: 0;
+    border-top: 3px double rgba(0, 0, 0, 0.493);
+    margin: 0 auto 34px;
+}
+
+/* ---------- Duas colunas de apresentação ---------- */
+.about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-bottom: 40px;
+}
+
+.about-intro__col {
+    padding: 0 30px;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+}
+
+.about-intro__col:first-child {
+    padding-left: 0;
+    border-right: var(--border-thin);
+}
+
+.about-intro__col:last-child { padding-right: 0; }
+
+/* Seções de Texto */
+
+.about-section { margin-bottom: 46px; }
+
+.about-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.about-section > p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 70ch;
+}
+
+/* Grade de Redação */
+
+.cabecalho-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 40px;
+}
+
+.cabecalho-grid__item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 0;
+    border-bottom: var(--border-thin);
+}
+
+.cabecalho-grid__papel {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red);
+}
+
+.cabecalho-grid__nome {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+/* Caixa de Correspondência */
+.about-contact {
+    border: 2px solid var(--ink);
+    padding: 30px;
+    text-align: center;
+    background: var(--paper);
+}
+
+.about-contact__carimbo {
+    display: inline-block;
+    border: 3px solid var(--red);
+    color: var(--red);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    padding: 6px 16px;
+    transform: rotate(-4deg);
+    margin-bottom: 18px;
+}
+
+.about-contact__endereco {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin: 0 0 6px;
+}
+
+.about-contact__meta {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+}
+
+/* Responsivo */
+@media screen and (max-width: 720px) {
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .about-intro__col:first-child {
+        padding-left: 0; padding-right: 0;
+        border-right: none;
+        border-bottom: var(--border-thin);
+        padding-bottom: 20px;
+    }
+
+    .cabecalho-grid { grid-template-columns: 1fr; }
+}

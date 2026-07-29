@@ -1,0 +1,6 @@
+# Dependências
+backend/node_modules
+
+# .env
+backend/.env
+

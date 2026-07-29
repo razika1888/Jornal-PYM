@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/styles/login.css">
+    <link rel="icon" type="image/png" href="src/images/logo-branca.png">
+    <title>PYM DAILY BUDGE | Login </title>
+</head>
+<body>
+    <main class="auth-page">
+
+        <section class="container auth-hero">
+            <span class="eyebrow">Acesso de Jornalista</span>
+            <h1>Entre ou <span class="accent">Registre-se</span></h1>
+            <p class="auth-hero__lead">Jornalistas tem acesso único e exclusivo, se você é leitor, volte para a página inicial.</p>
+        </section>
+
+        <div class="auth-divisor container" aria-hidden="true"></div>
+
+        <section class="container auth-wrapper">
+            <div class="auth-card">
+                <div class="auth-tabs" role="tablist" aria-label="Alternar entre entrar e criar conta">
+                    <button
+                        type="button"
+                        class="auth-tabs__btn is-active"
+                        id="tabLogin"
+                        role="tab"
+                        aria-selected="true"
+                        aria-controls="loginForm"
+                    ><i class="fa-solid fa-right-to-bracket"></i> Entrar</button>
+
+                    <button
+                        type="button"
+                        class="auth-tabs__btn"
+                        id="tabRegister"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="registerForm"
+                    ><i class="fa-solid fa-pen-nib"></i> Criar conta</button>
+                </div>
+
+                <form class="auth-form is-active" id="loginForm" role="tabpanel" aria-labelledby="tabLogin" novalidate>
+
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="loginEmail">Usuário</label>
+                        <div class="auth-form__input-grupo">
+                            <i class="fa-solid fa-user-check" style="color: rgb(0, 0, 0);"></i>
+                            <input type="text" id="loginEmail" name="loginEmail" placeholder="Seu nick" required>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="loginPassword">Senha</label>
+                        <div class="auth-form__input-grupo">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" id="loginPassword" name="loginPassword" placeholder="Sua senha" required>
+                            <button type="button" class="auth-form__toggle-visibility" data-target="loginPassword" aria-activedescendant="Mostrar senha">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__row auth-form__row--between">
+                        <label class="auth-form__checkbox">
+                            <input type="checkbox" id="loginRemember" name="loginRemember">
+                            <span>Lembrar de mim</span>
+                        </label>
+                        <a href="#" class="auth-form__link">Esqueceu a senha?</a>
+                    </div>
+
+                    <p class="auth-form__error" id="loginError" hidden>Preencha e-mail e senha para continuar!</p>
+
+                    <button type="submit" class="btn-form btn-form--primary auth-form__submit">
+                        <i class="fa-solid fa-right-to-bracket"></i> Entrar
+                    </button>
+                </form>
+
+                <form class="auth-form" id="registerForm" role="tabpanel" aria-labelledby="tabRegister" hidden novalidate>
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="registerName">Nome</label>
+                        <div class="auth-form__input-grupo">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="registerName" name="registerName" placeholder="Seu nome" required>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="registerUsuario">Usuário</label>
+                        <div class="auth-form__input-grupo">
+                            <i class="fa-solid fa-user-check" style="color: rgb(0, 0, 0);"></i>
+                            <input type="text" id="registerUsuario" name="registerUsuario" placeholder="Seu nick" required>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__row">
+                        <div class="auth-form__field">
+                            <label class="auth-form__label" for="registerPassword">Senha</label>
+                            <div class="auth-form__input-grupo">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="registerPassword" name="registerPassword" placeholder="Crie uma senha | Min: 6 caracteres" required minlength="6">
+                                <button type="button" class="auth-form__toggle-visibility" data-target="registerPassword" aria-label="Mostrar senha">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="auth-form__field">
+                            <label class="auth-form__label" for="registerPasswordConfirm">Confirmar senha</label>
+                            <div class="auth-form__input-grupo">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="registerPasswordConfirm" name="registerPasswordConfirm" placeholder="Repita a senha" required minlength="6">
+                                <button type="button" class="auth-form__toggle-visibility" data-target="registerPasswordConfirm" aria-label="Mostrar senha">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__field">
+                        <label class="auth-form__label" for="registerCodigo">Código de convite</label>
+                        <div class="auth-form__input-grupo">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="text" id="registerCodigo" name="registerCodigo" placeholder="Código fornecido pela redação" required>
+                        </div>
+                    </div>
+
+                    <p class="auth-form__error" id="registerError" hidden>Confira os campos destacados antes de continuar!</p>
+
+                    <button type="submit" class="btn-form btn-form--primary auth-form__submit">
+                        <i class="fa-solid fa-pen-nib"></i> Criar minha conta
+                    </button>
+
+                    <p class="auth-form__switch">
+                        Já tem conta?
+                        <button type="button" class="auth-form__switch-link" data-switch-to="login">Entrar</button>
+                    </p>
+                </form>
+
+                <p class="auth-form__status" id="authStatus" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer" id="rodape">
+        <div class="footer-watermark" aria-hidden="true">PYM DAILY BUDGE</div>
+
+        <div class="footer-top container">
+            <div class="footer-grid">
+
+                <div class="footer-col footer-brand">
+                    <h2>PYM Daily Budge</h2>
+                    <p>Publicação diária independente, cobrindo todas as principais cidades do mundo desde 1963. Redação, apuração e fotografia de mais alta qualidade desde sempre!</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Seções</h4>
+                    <ul>
+                        <li><a href="index.html">Capa</a></li>
+                        <li><a href="#">Heróis</a></li>
+                        <li><a href="">Editorial</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Sobre o Daily Budge</h4>
+                    <ul>
+                        <li><a href="">Quem somos</a></li>
+                        <li><a href="">Anuncie conosco</a></li>
+                        <li><a href="">Trabalhe conosco</a></li>
+                        <li><a href="">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Acesso rápido</h4>
+                    <div class="access-list">
+                        <a href="login.html" class="btn-primary">Entrar na conta</a>
+                        <a href="">Assinar o Daily Budge</a>
+                        <a href="">Recuperar senha</a>
+                    </div>
+                    <h4 style="margin-top: 20px;">Redes Sociais</h4>
+                    <div class="social-list">
+                        <a href="https://discord.gg/6GGW9Ue74n" aria-label="Daily Budge no Discord"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" aria-label="Daily Budge no TikTok (Indisponível)"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <p class="jornal-nota">Receba a edição diária do PYM Daily Budge direto no seu comunicador. Sem spam, sem robôs disfarçados.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom container">
+            <span>&copy; 2026 PYM Daily Budge — Todos os direitos reservados. Uma publicação fictícia de PYM Lunar Will RP</span>
+            <span><a href="#">Termos de Uso</a> · <a href="#">Privacidade</a> · <a href="#">Código de ética</a></span>
+        </div>
+    </footer>
+
+    <script src="src/scripts/login.js"></script>
+</body>
+</html>

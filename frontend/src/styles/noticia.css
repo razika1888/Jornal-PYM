@@ -1,0 +1,164 @@
+/* =========================================================
+   PÁGINA DE NOTÍCIA INDIVIDUAL
+   Container mais estreito que o resto do site, pra favorecer leitura.
+   ========================================================= */
+
+.noticia-container {
+    width: 100%;
+    max-width: 830px;
+    margin: 0 auto;
+    padding-top: 44px;
+    padding-bottom: 70px;
+}
+
+.noticia-container .eyebrow {
+    color: var(--red);
+}
+
+/* Estados de carregamento / erro */
+.noticia-estado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    padding: 80px 20px;
+    font-family: var(--font-body);
+    color: var(--ink-soft);
+}
+
+/* IMPORTANTE: sem isso, o [hidden] perde pro display:flex acima
+   (mesma especificidade, e essa regra vem depois na cascata) */
+.noticia-estado[hidden] {
+    display: none;
+}
+
+.noticia-estado i {
+    font-size: 1.6rem;
+    color: var(--red);
+}
+
+.noticia-estado--erro p {
+    max-width: 46ch;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Título */
+.noticia-titulo {
+    font-family: 'Bodoni Moda', var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(2.2rem, 5.6vw, 3.6rem);
+    line-height: 1.04;
+    color: var(--ink);
+    margin: 10px 0 18px;
+}
+
+/* Linha-fina / subtítulo (dek) */
+.noticia-dek {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+}
+
+/* Byline — reaproveita a classe .byline (linha divisória em cima/embaixo,
+   igual ao card de destaque do index.html), só ajustando o espaçamento */
+.noticia-byline {
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.noticia-byline strong {
+    color: var(--ink);
+}
+
+/* Corpo do texto */
+.noticia-corpo {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--ink);
+}
+
+.noticia-corpo p {
+    margin-bottom: 20px;
+}
+
+.noticia-corpo p:first-of-type::first-letter {
+    font-family: var(--font-display);
+    font-size: 3.6rem;
+    float: left;
+    line-height: 0.8;
+    padding: 6px 10px 0 0;
+    color: var(--red);
+}
+
+/* Imagem ao final do texto (upload da postagem) */
+.noticia-imagem {
+    margin: 34px 0 8px;
+    border: var(--border-thick);
+    box-shadow: var(--shadow-card);
+}
+
+.noticia-imagem img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+    filter: sepia(15%) saturate(130%);
+}
+
+.noticia-imagem figcaption {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    padding: 8px 14px;
+}
+
+/* Linha divisória final, mesmo estilo hairline usado no resto do site */
+.noticia-divisor {
+    border: none;
+    border-top: var(--border-thin);
+    margin: 36px 0 26px;
+}
+
+/* Botão "Voltar à Capa" */
+.noticia-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: var(--red);
+    color: var(--cream);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: var(--border-thick);
+    box-shadow: var(--shadow-card-sm);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.noticia-voltar:hover {
+    background: var(--red-bright);
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-card);
+}
+
+.noticia-voltar:active {
+    transform: translate(0, 0);
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+@media (max-width: 640px) {
+    .noticia-byline {
+        flex-direction: column;
+        gap: 6px;
+    }
+}

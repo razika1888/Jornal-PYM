@@ -1,0 +1,573 @@
+@import url(../fonts/fonts.css);
+
+:root {
+  /* Cor principal exigida */
+  --red: #8a0303;
+  --red-dark: #5c0202;
+  --red-bright: #b40404;
+
+  --cream: #f1e7d0;
+  --cream-dark: #e4d6b4;
+  --paper: #f7f0dc;
+  --ink: #1b1712;
+  --ink-soft: #38312a;
+
+  --navy: #1c2531;
+  --navy-dark: #12181f;
+  --gold: #c9a24b;
+  --gold-light: #e2c37f;
+
+  --font-display: 'Anton', 'Arial Narrow', sans-serif;
+  --font-body: 'Lora', Georgia, serif;
+
+  --hairline: rgba(27, 23, 18, 0.35);
+
+  --border-thick: 4px solid var(--ink);
+  --border-thin: 1px solid var(--hairline);
+
+  --shadow-card: 6px 6px 0 var(--ink);
+  --shadow-card-sm: 4px 4px 0 var(--ink);
+}
+
+body.dark {
+  --red: #c81616;
+  --red-dark: #7a0404;
+  --red-bright: #e23434;
+
+  --cream: #14171b;
+  --cream-dark: #1b1f24;
+  --paper: #1c2027;
+  --ink: #ece3cf;
+  --ink-soft: #b7ada0;
+
+  --hairline: rgba(236, 227, 207, 0.22);
+
+  --shadow-card: 6px 6px 0 rgba(236, 227, 207, 0.35);
+  --shadow-card-sm: 4px 4px 0 rgba(236, 227, 207, 0.35);
+}
+
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background-color: var(--cream);
+  background-image: radial-gradient(rgba(27, 23, 18, 0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: .25s ease;
+}
+
+body, body *{ transition: .25s ease; }
+
+.container{
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a           { text-decoration: none; }
+img         { max-width: 100%; display: block; }
+::selection { background: var(--red); color: var(--cream) }
+
+/* =========================================================
+   BOTÃO DE MODO CLARO/ESCURO
+   Fixo no canto superior esquerdo, fora da coluna de leitura.
+   ========================================================= */
+
+#themeToggle {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 1000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 1.15rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+#themeToggle:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 4px 5px 0 var(--ink);
+}
+
+#themeToggle:active {
+  transform: translate(0, 0);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+#themeToggle:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+body.dark #themeToggle {
+  background: var(--navy);
+  color: var(--gold-light);
+  border-color: var(--gold);
+  box-shadow: 3px 3px 0 rgba(236, 227, 207, 0.35);
+}
+
+body.dark #themeToggle:hover {
+  box-shadow: 4px 5px 0 rgba(236, 227, 207, 0.35);
+}
+
+@media (max-width: 720px) {
+  #themeToggle {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+/* =========================================================
+  CONFIGURAÇÃO BARRA LATERAL
+  INSPIRAÇÃO EM: uma peça de metal envelhecido ou uma régua de tipografia antiga
+   ========================================================= */
+
+/* FIREFOX */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) var(--cream-dark);
+}
+
+/* NAVEGADORES MODERNOS (CHROME, EDGE) */
+::-webkit-scrollbar { width: 16px; }
+
+::-webkit-scrollbar-track{
+  background: none;
+  border-left: var(--border-thin); border-right: var(--border-thin);
+
+  background-image: repeating-linear-gradient(
+    180deg,
+    transparent 0px,
+    transparent 6px,
+    rgba(0, 0, 0, 0.03) 7px
+  );
+}
+
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(
+    180deg,
+    var(--red-bright),
+    var(--red),
+    var(--red-dark)
+  );
+
+  border: 2px solid var(--cream); border-radius: 2px;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12),
+              2px 2px 0 rgba(27, 13, 18, .35);
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(
+    180deg,
+    #c40a0a,
+    var(--red-bright),
+    var(--red)
+  )
+}
+
+::-webkit-scrollbar-thumb:active { background: var(--red-dark); }
+::-webkit-scrollbar-corner       { background: var(--cream-dark); }
+
+/* =========================================================
+   TOPO — barra utilitária + masthead + navegação + ticker
+   ========================================================= */
+
+.top-bar {
+  background: var(--ink);
+  color: var(--cream-dark);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.top-bar .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.top-bar__data{ text-transform: uppercase; opacity: 0.85; }
+
+.top-bar__meta{
+  display: flex; gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.top-bar__meta span strong{ color: var(--gold-light); }
+
+.header{
+  background: var(--paper);
+  border-bottom: var(--border-thick);
+  padding: 30px 0 0;
+}
+
+.header__inner{
+  text-align: center;
+  padding-bottom: 18px;
+  position: relative;
+}
+
+.header__row{
+  display: flex;
+  align-items: center; justify-content: center;
+  gap: 18px;
+}
+
+.header__row .divisor{
+  flex: 1;
+  max-width: 220px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 8px);
+  border-radius: 9999px;
+}
+
+.header__logo{ width: 100px; }
+.header__logo img{ max-width: 100%; }
+
+.header h1.logo{
+  font-size: clamp(2.8rem, 8vw, 5.6rem);
+  color: var(--red);
+  text-shadow: 3px 3px 0 var(--ink);
+  line-height: 0.95;
+  margin: 0 0 4px;
+  font-family: 'Bodoni Moda';
+}
+
+.header__tagline{
+  font-family: var(--font-body);
+  margin-top: 20px;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.header__badges {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  padding: 10px 2px 0;
+  border-top: var(--border-thin);
+  margin-top: 14px;
+}
+
+/* Navegação */
+.main-nav{
+  background: var(--red);
+  border-bottom: var(--border-thick);
+}
+
+.main-nav .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-toggle{
+  display: none;
+  background: none;
+  border: 2px solid var(--cream);
+  font-family: var(--font-body);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: var(--cream)
+}
+
+.nav-list{
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-list a{
+  display: block;
+  padding: 14px 18px;
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  border-right: 1px solid rgba(241, 231, 208, 0.25);
+  transition: .15s ease;
+}
+
+.nav-list a:hover, .nav-list a:focus-visible{
+  background: var(--ink);
+  color: var(--gold-light);
+}
+
+.nav-cta { color: var(--gold-light) !important }
+
+.ticker {
+  background: var(--ink);
+  color: var(--cream);
+  overflow: hidden;
+  border-bottom: var(--border-thick);
+  position: relative;
+}
+
+.ticker__label {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  padding: 0 16px;
+  z-index: 2;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
+}
+
+.ticker__track {
+  display: flex;
+  white-space: nowrap;
+  padding: 10px 0 10px 130px;
+  width: max-content;
+  animation: ticker-scroll 32s linear infinite;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.ticker:hover .ticker__track { animation-play-state: paused; }
+
+.ticker__track a {
+  color: var(--cream);
+  margin-right: 44px;
+  opacity: 0.92;
+  text-decoration: none;
+}
+
+.ticker__track a:hover{
+  color: var(--cream-dark);
+  text-decoration: underline;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* =========================================================
+   RODAPÉ — estilo "corporativo" com marca d'água e acessos
+   ========================================================= */
+
+.site-footer {
+  margin-top: 4rem;
+  position: relative;
+  background: var(--navy-dark);
+  color: rgba(241, 231, 208, 0.82);
+  overflow: hidden;
+  border-top: 6px solid var(--red);
+}
+
+.footer-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 18vw, 13rem);
+  color: rgba(241, 231, 208, 0.035);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0.02em;
+  z-index: 0;
+}
+
+.footer-top {
+  position: relative;
+  z-index: 1;
+  padding: 56px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 40px;
+}
+
+.footer-brand h2 {
+  color: var(--cream);
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  max-width: 34ch;
+  color: rgba(241, 231, 208, 0.65);
+}
+
+.footer-col h4 {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+
+.footer-col ul { list-style: none; margin: 0; padding: 0; }
+
+.footer-col li { margin-bottom: 10px; }
+
+.footer-col a {
+  font-size: 0.9rem;
+  color: rgba(241, 231, 208, 0.78);
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.footer-col a:hover {
+  color: var(--gold-light);
+  padding-left: 4px;
+}
+
+/* Acesso rápido: login / assinatura */
+.access-list a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(241, 231, 208, 0.22);
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+}
+
+.access-list a:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--cream);
+  padding-left: 12px;
+}
+
+.access-list .btn-primary {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--cream);
+  font-weight: bold;
+}
+
+.access-list .btn-primary:hover { background: var(--red-dark); }
+
+/* Redes sociais */
+.social-list {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.social-list a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(241, 231, 208, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-list a i{ width: 18px; height: 18px;}
+
+.social-list a:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy-dark);
+}
+
+.jornal-nota {
+  margin-top: 18px;
+  font-size: 0.78rem;
+  color: rgba(241, 231, 208, 0.55);
+  border-top: 1px solid rgba(241, 231, 208, 0.22);
+  padding-top: 14px;
+}
+
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(241, 231, 208, 0.15);
+  padding: 18px 0 26px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(241, 231, 208, 0.5);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-bottom a { color: rgba(241, 231, 208, 0.6); }
+.footer-bottom a:hover { color: var(--gold-light); }
+
+.torn-divider {
+  height: 22px;
+  background: var(--ink);
+  clip-path: polygon(
+    0% 100%, 0% 30%, 4% 60%, 8% 20%, 12% 55%, 16% 15%, 20% 50%,
+    24% 25%, 28% 60%, 32% 10%, 36% 45%, 40% 20%, 44% 55%, 48% 30%,
+    52% 60%, 56% 15%, 60% 50%, 64% 25%, 68% 55%, 72% 20%, 76% 60%,
+    80% 30%, 84% 55%, 88% 20%, 92% 50%, 96% 25%, 100% 45%, 100% 100%
+  );
+}
+
+/* RESPONSIVIDADE */
+@media screen and (max-width: 1310px) {
+  .top-bar { padding: 0 1rem;}
+}
+
+@media screen and (max-width: 960px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); padding: 0 1rem; }
+  .footer-bottom { padding: 1rem; }
+}
+
+@media screen and (max-width: 720px) {
+  .nav-toggle { display: inline-block }
+  .nav-list{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  .nav-list.is-open { display: flex; }
+  .main-nav .container { flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
+  .nav-list a { border-right: none; border-bottom: 1px solid rgba(241, 231, 208, 0.2) }
+  .header__badges{ flex-direction: column; gap: 6px; align-items: center; }
+}

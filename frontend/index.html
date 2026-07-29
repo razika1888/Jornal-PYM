@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/styles/style.css">
+    <link rel="icon" type="image/png" href="src/images/logo-branca.png">
+    <title>PYM DAILY BUDGE | Casa</title>
+</head>
+<body>
+    <!-- BOTÃO TEMA -->
+    <button
+        type="button"
+        id="themeToggle"
+        aria-pressed="false"
+        aria-label="Ativar modo escuro"
+        title="Alternar modo claro/escuro"
+    ><i class="fa-regular fa-moon"></i></button>
+    
+    <!-- BARRA TOPO -->
+    <div class="top-bar">
+        <div class="container">
+            <span class="top-bar__data"></span>
+            <div class="top-bar__meta">
+                <span>Pym City: <strong id="temp-pym-city"></strong></span>
+                <span>Edição avulsa: <strong>R$ 3,50</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html">
+        <header class="header">
+            <div class="container header__inner">
+                <div class="header__row">
+                    <span class="divisor"></span>
+                    <div class="header__logo"><img src="src/images/logo.png"></div>
+                    <span class="divisor"></span>
+                </div>
+                <h1 class="logo">PYM Daily Budge</h1>
+                <p class="header__tagline">"A cidade dos heróis nunca para!" - fundado em 1963</p>
+                <div class="header__badges">
+                    <span>Circulação verificada em <strong>14 metrópoles</strong></span>
+                    <span>Seção de heróis, vilões &amp; fenômenos</span>
+                </div>
+            </div>
+        </header>
+    </a>
+
+    <nav class="main-nav">
+        <div class="container">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="navList"><i class="fa-solid fa-bars"></i> Seções</button>
+            <ul class="nav-list" id="navList">
+                <li><a href="index.html">Capa</a></li>
+                <li><a href="#">Heróis</a></li>
+                <li><a href="#">Editorial</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="#rodape" class="nav-cta">Assine</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="ticker">
+        <span class="ticker__label">Novas Notícias</span>
+        <div class="ticker__track">
+
+        </div>
+    </div>
+
+    <!-- DESTAQUE + SIDEBAR -->
+    <main>
+        <section class="hero-section container" id="destaque">
+
+            <article class="hero-main">
+                <figure class="hero-main__figure">
+                    <img src="https://cdn.discordapp.com/attachments/1515047920288661632/1529326989645971647/Screenshot_2026-07-22-00-18-44-908_com.twitter.android-edit.jpg?ex=6a6230ff&is=6a60df7f&hm=59b250ce26f84ba7366e4594325b7916e5d358f13121692ff2361ead9147afdc&" alt="Teste">
+                    <figcaption>Foto: Daily BUDGE</figcaption>
+                </figure>
+                <div class="hero-main__body">
+                    <span class="eyebrow">Capa • Teste</span>
+                    <h2>Título da Notícia</h2>
+                    <div class="byline">
+                        <span>Por: <strong id="autor">Oliver Parker</strong></span>
+                        <span>Publicado às: <span id="horarioPostagem"></span></span>
+                    </div>
+                    <div class="text">
+                        
+                    </div>
+                    <a href="#" class="read-more">Leia a reportagem completa</a>
+                </div>
+            </article>
+
+            <aside class="hero-sidebar">
+                <h2 class="sidebar-title">Também em destaque</h2>
+
+                <article class="sidebar-story">
+                    <figure class="sidebar-story__figure">
+                        <img src="https://media.discordapp.net/attachments/1515047920288661632/1529171532419563602/image.png?ex=6a60f777&is=6a5fa5f7&hm=7e1fe62b62afc562d64cfa5293871978bbc5345cfeac83dd7f708d248090ebaf&=&format=webp&quality=lossless" Alt="Imagem">
+                    </figure>
+                    <div class="sidebar-story__content">
+                        <span class="eyebrow">Cidade</span>
+                        <h3><a href="#">Liga dos Guardiões anuncia nova base na Zona Norte</a></h3>
+                        <p>Instalação promete tempo de resposta 40% menor em chamados de emergência.</p>
+                    </div>
+                </article>
+
+                <article class="sidebar-story">
+                    <figure class="sidebar-story__figure">
+                        <img src="https://media.discordapp.net/attachments/1515047920288661632/1529171532419563602/image.png?ex=6a60f777&is=6a5fa5f7&hm=7e1fe62b62afc562d64cfa5293871978bbc5345cfeac83dd7f708d248090ebaf&=&format=webp&quality=lossless" Alt="Imagem">
+                    </figure>
+                    <div class="sidebar-story__content">
+                        <span class="eyebrow">Cidade</span>
+                        <h3><a href="#">Liga dos Guardiões anuncia nova base na Zona Norte</a></h3>
+                        <p>Instalação promete tempo de resposta 40% menor em chamados de emergência.</p>
+                    </div>
+                </article>
+
+                <article class="sidebar-story">
+                    <figure class="sidebar-story__figure">
+                        <img src="https://media.discordapp.net/attachments/1515047920288661632/1529171532419563602/image.png?ex=6a60f777&is=6a5fa5f7&hm=7e1fe62b62afc562d64cfa5293871978bbc5345cfeac83dd7f708d248090ebaf&=&format=webp&quality=lossless" Alt="Imagem">
+                    </figure>
+                    <div class="sidebar-story__content">
+                        <span class="eyebrow">Cidade</span>
+                        <h3><a href="#">Liga dos Guardiões anuncia nova base na Zona Norte</a></h3>
+                        <p>Instalação promete tempo de resposta 40% menor em chamados de emergência.</p>
+                    </div>
+                </article>
+
+                <article class="sidebar-story">
+                    <figure class="sidebar-story__figure">
+                        <img src="https://media.discordapp.net/attachments/1515047920288661632/1529171532419563602/image.png?ex=6a60f777&is=6a5fa5f7&hm=7e1fe62b62afc562d64cfa5293871978bbc5345cfeac83dd7f708d248090ebaf&=&format=webp&quality=lossless" Alt="Imagem">
+                    </figure>
+                    <div class="sidebar-story__content">
+                        <span class="eyebrow">Cidade</span>
+                        <h3><a href="#">Liga dos Guardiões anuncia nova base na Zona Norte</a></h3>
+                        <p>Instalação promete tempo de resposta 40% menor em chamados de emergência.</p>
+                    </div>
+                </article>
+            </aside>
+
+        </section>
+
+        <div class="torn-divider" aria-hidden="true"></div>
+
+        <section class="noticias-grid-section container" id="mais-noticias">
+            <h2 class="section-heading">Mais Notícias</h2>
+
+            <div class="news-grid">
+                <a href="#" class="news-card__seletor">
+                    <article class="news-card news-card--media">
+                        <figure class="news-card__figure">
+                            <img src="https://cdn.discordapp.com/attachments/1515047920288661632/1529285643920998451/image.png?ex=6a6161be&is=6a60103e&hm=60b38b201c6e1b2c5fd384d21826c5752451de49b890db0596cea71bb72af9e7&" Alt="Imagem">
+                        </figure>
+                        <div class="news-card__body">
+                            <span class="eyebrow">Esportes</span>
+                            <h3>Torneio de Força reúne heróis de seis cidades no Estádio Titã</h3>
+                            <p>Disputa amistosa arrecada fundos para o Hospital Central de Aurora.</p>
+                            <span href="#" class="read-more">Continuar lendo →</span>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#" class="news-card__seletor">
+                    <article class="news-card news-card--media">
+                        <figure class="news-card__figure">
+                            <img src="https://cdn.discordapp.com/attachments/1515047920288661632/1529285643920998451/image.png?ex=6a6161be&is=6a60103e&hm=60b38b201c6e1b2c5fd384d21826c5752451de49b890db0596cea71bb72af9e7&" Alt="Imagem">
+                        </figure>
+                        <div class="news-card__body">
+                            <span class="eyebrow">Esportes</span>
+                            <h3>Torneio de Força reúne heróis de seis cidades no Estádio Titã</h3>
+                            <p>Disputa amistosa arrecada fundos para o Hospital Central de Aurora.</p>
+                            <span href="#" class="read-more">Continuar lendo →</span>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#" class="news-card__seletor">
+                    <article class="news-card news-card--media">
+                        <figure class="news-card__figure">
+                            <img src="https://cdn.discordapp.com/attachments/1515047920288661632/1529285643920998451/image.png?ex=6a6161be&is=6a60103e&hm=60b38b201c6e1b2c5fd384d21826c5752451de49b890db0596cea71bb72af9e7&" Alt="Imagem">
+                        </figure>
+                        <div class="news-card__body">
+                            <span class="eyebrow">Esportes</span>
+                            <h3>Torneio de Força reúne heróis de seis cidades no Estádio Titã</h3>
+                            <p>Disputa amistosa arrecada fundos para o Hospital Central de Aurora.</p>
+                            <span href="#" class="read-more">Continuar lendo →</span>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="#" class="news-card__seletor">
+                    <article class="news-card news-card--media">
+                        <figure class="news-card__figure">
+                            <img src="https://cdn.discordapp.com/attachments/1515047920288661632/1529285643920998451/image.png?ex=6a6161be&is=6a60103e&hm=60b38b201c6e1b2c5fd384d21826c5752451de49b890db0596cea71bb72af9e7&" Alt="Imagem">
+                        </figure>
+                        <div class="news-card__body">
+                            <span class="eyebrow">Esportes</span>
+                            <h3>Torneio de Força reúne heróis de seis cidades no Estádio Titã</h3>
+                            <p>Disputa amistosa arrecada fundos para o Hospital Central de Aurora.</p>
+                            <span href="#" class="read-more">Continuar lendo →</span>
+                        </div>
+                    </article>
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="site-footer" id="rodape">
+        <div class="footer-watermark" aria-hidden="true">PYM DAILY BUDGE</div>
+
+        <div class="footer-top container">
+            <div class="footer-grid">
+
+                <div class="footer-col footer-brand">
+                    <h2>PYM Daily Budge</h2>
+                    <p>Publicação diária independente, cobrindo todas as principais cidades do mundo desde 1963. Redação, apuração e fotografia de mais alta qualidade desde sempre!</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Seções</h4>
+                    <ul>
+                        <li><a href="index.html">Capa</a></li>
+                        <li><a href="#">Heróis</a></li>
+                        <li><a href="">Editorial</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Sobre o Daily Budge</h4>
+                    <ul>
+                        <li><a href="">Quem somos</a></li>
+                        <li><a href="">Anuncie conosco</a></li>
+                        <li><a href="">Trabalhe conosco</a></li>
+                        <li><a href="">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Acesso rápido</h4>
+                    <div class="access-list">
+                        <a href="login.html" class="btn-primary">Entrar na conta</a>
+                        <a href="">Assinar o Daily Budge</a>
+                        <a href="">Recuperar senha</a>
+                    </div>
+                    <h4 style="margin-top: 20px;">Redes Sociais</h4>
+                    <div class="social-list">
+                        <a href="https://discord.gg/6GGW9Ue74n" aria-label="Daily Budge no Discord"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" aria-label="Daily Budge no TikTok (Indisponível)"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                    <p class="jornal-nota">Receba a edição diária do PYM Daily Budge direto no seu comunicador. Sem spam, sem robôs disfarçados.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom container">
+            <span>&copy; 2026 PYM Daily Budge — Todos os direitos reservados. Uma publicação fictícia de PYM Lunar Will RP</span>
+            <span><a href="#">Termos de Uso</a> · <a href="#">Privacidade</a> · <a href="#">Código de ética</a></span>
+        </div>
+    </footer>
+
+
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/clima.js"></script>
+    <script src="src/scripts/auth-status.js"></script>
+    <script src="src/scripts/noticias-home.js"></script>
+</body>
+</html>
