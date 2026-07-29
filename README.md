@@ -124,7 +124,7 @@ DB_NAME=pym_jornal_db
 SESSION_SECRET=troque-por-uma-string-aleatoria-longa
 
 # Código exigido pra criar conta de jornalista — troque e não divulgue publicamente
-CODIGO_CADASTRO=PYM-REDACAO-2026
+CODIGO_CADASTRO=troque-por-um-codigo
 
 FRONTEND_URL=http://localhost:3000
 
